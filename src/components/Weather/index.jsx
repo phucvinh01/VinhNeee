@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getWeather } from '../../lib/api';
 import { motion } from 'framer-motion'
+import { Skeleton } from 'antd';
 
 const Weather = () => {
 
@@ -51,21 +52,24 @@ const Weather = () => {
             animate={ { y: 0, opacity: 1 } }
             className='w-full flex flex-col gap-4  items-end'>
             <h3 className='font-medium'>Thời tiết hôm nay thế nào nhỉ?</h3>
-            <div className='flex  flex-col items-end gap-2'>
-                <h2><em>{ dataWeather && dataWeather.location?.country }</em></h2>
-                <h3><em>{ dataWeather && dataWeather.location?.name }</em></h3>
-                <div className='flex gap-4'>
-                    <div className='flex items-center justify-between w-full'>
-                        <img className='' src={ dataWeather && dataWeather.current?.condition?.icon }></img>
-                        <div className='flex gap-1 items-center justify-center'>
-                            <h4 className='font-extrabold text-lg '>{ dataWeather && dataWeather.current?.feelslike_c } 🌡️</h4>
+            {
+                dataWeather ? <div className='flex  flex-col items-end gap-2'>
+                    <h2><em>{ dataWeather && dataWeather.location?.country }</em></h2>
+                    <h3><em>{ dataWeather && dataWeather.location?.name }</em></h3>
+                    <div className='flex gap-4'>
+                        <div className='flex items-center justify-between w-full'>
+                            <img className='' src={ dataWeather && dataWeather.current?.condition?.icon }></img>
+                            <div className='flex gap-1 items-center justify-center'>
+                                <h4 className='font-extrabold text-lg '>{ dataWeather && dataWeather.current?.feelslike_c } 🌡️</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='flex items-center w-full'>
-                    <h2 className=''>{ dataWeather && dataWeather.current?.condition?.text }</h2>
-                </div>
-            </div>
+                    <div className='flex items-center w-full'>
+                        <h2 className=''>{ dataWeather && dataWeather.current?.condition?.text }</h2>
+                    </div>
+                </div> : <Skeleton />
+            }
+
 
         </motion.div>
 
