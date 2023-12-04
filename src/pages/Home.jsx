@@ -5,7 +5,6 @@ import icon from '../assets/hi.png'
 import { FaGithub, FaFacebook, FaArrowRight } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 import { FaDownload } from "react-icons/fa6";
-import cv from '../assets/CVFresherReactJS-NguyenPhucVinh.pdf'
 import { Divider } from 'antd'
 import second from '../assets/hehe.png'
 import darkImg from '../assets/home-dark.png'
