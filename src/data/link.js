@@ -4,19 +4,20 @@ export const link = [
         "hash": '/'
     },
     {
-        "name": 'About',
-        "hash": '/about'
-    },
-    {
-        "name": 'Project',
-        "hash": '/project'
+        "name": 'About & Skills',
+        "hash": '/about-skill'
     },
     {
         "name": 'Experience',
         "hash": '/experience'
     },
     {
-        "name": 'Contact',
-        "hash": '/contact'
+        "name": 'Project',
+        "hash": '/project'
+    },
+
+    {
+        "name": 'Resumes',
+        "hash": '/resumes'
     },
 ]

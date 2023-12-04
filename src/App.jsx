@@ -3,16 +3,17 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
 import './index.css'
 import { lazy, Suspense } from 'react';
+import Loading from './components/Loading';
 function App() {
 
   return (
     <>
-      <Suspense fallback={ 'loadingg.....' }>
+      <Suspense fallback={ <Loading /> }>
         <Routes>
           <Route path="/" element={ <Layout /> }>
             <Route index element={ <Home /> } />
-            <Route path="/about" element={ <About /> } />
-            <Route path="/contact" element={ <Contact /> } />
+            <Route path="/about-skill" element={ <About /> } />
+            <Route path="/resumes" element={ <Contact /> } />
             <Route path="/project" element={ <Project /> } />
             <Route path="/skill" element={ <Skill /> } />
             <Route path="/experience" element={ <Experience /> } />

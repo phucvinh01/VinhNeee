@@ -11,7 +11,10 @@ import second from '../assets/hehe.png'
 import darkImg from '../assets/home-dark.png'
 import Navigation from '../components/Navigation'
 import { useTheme } from '../context/ThemeContext'
+import { skills } from '../data/skills'
 const Home = () => {
+
+
     const containerVariants = {
         swinging: {
             rotate: [-2, 2, -1, 1, 0],
@@ -47,15 +50,19 @@ const Home = () => {
                         <img src='https://i.pinimg.com/564x/90/7c/06/907c06197e02bf752cf107b21d03b524.jpg' width={ 80 } alt='logo' className='rounded-full  w-full sm:w-[80px]' />
                         <img className='absolute top-0 left-[70px]' src={ icon } alt='icon' width={ 40 } />
                     </motion.div>
-                    <h1 className='text-2xl sm:text-sm'><em>Wellcome to my website</em> </h1>
-                    <p>Please allow me to introduce</p>
-                    <p className='w-full sm:w-1/2'>Currently, I am a 4th year student at Ho Chi Minh City University of Industry and Trade. And later I will be a frontend developer with React ❤️❤️❤️</p>
-                    <p></p>
-                    <div className='flex items-center justify-center sm:justify-start gap-5'>
-                        <Link className='text-2xl'><FaGithub /></Link>
-                        <Link className='text-2xl'><FaFacebook /></Link>
-                        <Link download href={ cv } className='flex gap-2 items-center border px-3 rounded-md'>My CV <FaDownload /></Link>
-                    </div>
+                    <motion.p
+                        className="w-full sm:w-1/2 mb-10 mt-4 px-4 text-xl text-center sm:text-start font-medium !leading-[1.5] sm:text-2xl"
+                        initial={ { opacity: 0, y: 100 } }
+                        animate={ { opacity: 1, y: 0 } }
+                        transition={ { delay: 0.5 } }
+                    >
+                        <span className="font-bold">Hello, </span> I'm a{ " " }
+                        <span className="font-bold">front-end developer</span> with{ " 0.5 " }
+                        YOE. I enjoy
+                        building <span className="italic">sites & apps</span>. My focus is{ " " }
+                        <a target='_blank' className="underline" href='https://en.wikipedia.org/wiki/React_(software)'>React</a>.
+                    </motion.p>
+
                 </motion.div>
                 <div className='hidden sm:block'>
                     <Weather />
@@ -76,7 +83,7 @@ const Home = () => {
                 </motion.div>
             </section>
             <section className='flex justify-end mt-2'>
-                <Link to={ '/about' } className='text-2xl p-2 border border-cyan-400 rounded-full'><FaArrowRight /></Link>
+                <Link to={ '/about-skill' } className='text-2xl p-2 border border-cyan-400 rounded-full'><FaArrowRight /></Link>
             </section>
         </div>
     )
