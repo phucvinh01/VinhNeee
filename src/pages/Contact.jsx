@@ -2,106 +2,146 @@ import React, { useState } from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import cv from '../assets/cv.pdf'
-import { Document, pdfjs } from 'react-pdf';
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    'pdfjs-dist/build/pdf.worker.min.js',
-    import.meta.url,
-).toString();
-
-
-const cvData = {
-    name: "Nguyễn Văn A",
-    email: "nguyenvana@gmail.com",
-    phone: "0912345678",
-    education: {
-        university: "Đại học Bách khoa Hà Nội",
-        major: "Công nghệ thông tin",
-        graduationYear: "2023",
-    },
-    experience: {
-        company: "Google",
-        position: "Software Engineer",
-        time: "2021-nay",
-        description: "Phát triển các ứng dụng web và di động",
-    },
-    skills: {
-        hard: ["Java", "Python", "JavaScript"],
-        soft: ["Lập luận", "Khả năng giải quyết vấn đề", "Khả năng làm việc nhóm"],
-    },
-};
-
-const createCV = (cvData) => {
-    const html = `
-    <html>
-      <head>
-        <title>CV</title>
-      </head>
-      <body>
-        <header>
-          <h1>Tiêu đề CV</h1>
-        </header>
-        <section>
-          <h2>Thông tin cá nhân</h2>
-          <p>Tên: ${cvData.name}</p>
-          <p>Email: ${cvData.email}</p>
-          <p>Số điện thoại: ${cvData.phone}</p>
-        </section>
-        <section>
-          <h2>Trình độ học vấn</h2>
-          <ul>
-            <li>
-              <p>Đại học: ${cvData.education.university}</p>
-              <p>Ngành học: ${cvData.education.major}</p>
-              <p>Năm tốt nghiệp: ${cvData.education.graduationYear}</p>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Kinh nghiệm làm việc</h2>
-          <ul>
-            <li>
-              <p>Công ty: ${cvData.experience.company}</p>
-              <p>Chức vụ: ${cvData.experience.position}</p>
-              <p>Thời gian: ${cvData.experience.time}</p>
-              <p>Mô tả công việc: ${cvData.experience.description}</p>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Kỹ năng</h2>
-          <ul>
-            <li>
-              <p>Kỹ năng cứng: ${cvData.skills.hard}</p>
-            </li>
-            <li>
-              <p>Kỹ năng mềm: ${cvData.skills.soft}</p>
-            </li>
-          </ul>
-        </section>
-      </body>
-    </html>
-  `;
-
-    return html;
-};
+import { CiPhone } from "react-icons/ci";
+import { MdOutlineEmail } from "react-icons/md";
+import { CiLink, CiLocationOn } from "react-icons/ci";
+import { Divider } from 'antd';
+import { exp } from '../data/experience';
+import { skills } from '../data/skills';
+import { project } from '../data/project';
 const Contact = () => {
 
-    const downloadCV = () => {
-        const html = createCV(cvData);
-        const blob = new Blob([html], { type: "application/pdf" });
-    };
-    const [file, setFile] = useState(cv);
-    return (
-        <>
-            <section className='flex justify-center items-center mt-[80px] gap-4'>
-                <Document file={ cv } />
-            </section>
-            <div className='flex justify-end mt-2 gap-4'>
-                <Link to={ '/project' } className='text-2xl p-2 border border-cyan-400 rounded-full'><FaArrowLeft /></Link>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <section className='flex flex-col px-10 py-6 mt-[40px] border gap-3'>
+        <div className='flex flex-col justify-center items-center gap-2'>
+          <h2 className=' text-2xl font-semibold'>Nguyen Phuc Vinh</h2>
+          <p className="text-sm">Front-end Developer</p>
+        </div>
+        <div className='flex gap-1 items-center justify-between'>
+          <p className='flex gap-1 items-center'><CiPhone /> 079649405</p>
+          <p className='flex gap-1 items-center'><MdOutlineEmail /> nguyenphucvinh1920@gmail.com</p>
+          <a className='flex gap-1 items-center' target='_blank' href='https://vinhhandsomee.vercel.app/'><CiLink />https://vinhhandsomee.vercel.app/</a>
+          <p className='flex gap-1 items-center'><CiLocationOn /> Tan Phu District, Ho Chi Minh City</p>
+        </div>
+
+        <div className='border-b-2 border-black'>
+          <p className='text-2xl'>OBJECTIVE</p>
+        </div>
+
+        <p>Hello, I'm a{ " " } front-end developer with{ " 0.5 " } YOE. I enjoy building sites & apps. My focus is{ " React " }.</p>
+
+        <div className='border-b-2 border-black'>
+          <p className='text-2xl'>EDUCATION</p>
+        </div>
+        {
+          exp.map((item, index) => {
+            return (
+              <div> {
+                item.tag === 'learn' && <>
+                  <p><span className='font-bold'>University: </span>{ item.company } ({ item.date })</p>
+                  <p><span className='font-bold'>Major: </span>{ item.positon }</p>
+                </>
+              }
+              </div>
+            )
+          })
+        }
+
+
+        <div className='border-b-2 border-black'>
+          <p className='text-2xl'>WORK EXPERIENCE</p>
+        </div>
+
+        <div>
+          {
+            exp.map((item, index) => {
+              return (
+                <div key={ index } >
+                  {
+                    item.tag === 'work' && <>
+                      <p><span className='font-bold'>Company: </span> { item.company }  ({ item.date })</p>
+                      <p><span className='font-bold'>Website: </span>{ item.websiteComapy }.</p>
+                      <p><span className='font-bold'>Positon: </span>{ item.positon }.</p>
+                      <p><span className='font-bold'>Responsibility:</span> { item.responsibility }.</p>
+                    </>
+                  }
+                </div>
+
+              )
+            })
+          }
+        </div>
+
+        <div className='border-b-2 border-black'>
+          <p className='text-2xl'>SKILLS</p>
+        </div>
+
+        <div className='flex justify-between flex-col'>
+          <div >
+            <p><span className='font-bold'>Front-end:</span>
+              {
+                skills.map((item, index) => {
+                  return (
+                    <span key={ index }>
+                      { item.tag === 'fe' && item.name + ", " } { " " }
+                    </span>
+                  )
+                }
+                )
+              }
+            </p>
+            <p><span className='font-bold'>Back-end:</span>{ " " }
+              {
+                skills.map((item, index) => {
+                  return (
+                    <span key={ index }>
+                      { item.tag === 'be' && item.name + ", " } { " " }
+                    </span>
+                  )
+                }
+                )
+              }
+            </p>
+          </div>
+        </div>
+
+        <div className='border-b-2 border-black'>
+          <p className='text-2xl'>Project</p>
+        </div>
+
+        <div>
+          {
+            project.map((item, index) => {
+              return (
+                <div className='flex'>
+                  <div>
+                    <p className='font-semibold'>Name: </p>
+                    <p className='font-semibold'>Description: </p>
+                    <p className='font-semibold'>Link: </p>
+                    <p className='font-semibold'>Website: </p>
+                    <p className='font-semibold'>Technology description: </p>
+                  </div>
+                  <div>
+                    <p className='font-normal'>{ item.title }</p>
+                    <p className='font-normal'>{ item.description }</p>
+                    <p className='font-normal'>{ item.linkGit }</p>
+                    <p className='font-normal'>{ item.linkWeb }</p>
+                    <p className='font-normal'>{ item.tags.map((item) => <span>{ item }, </span>) }</p>
+                  </div>
+                </div>
+              )
+            })
+
+          }
+        </div>
+
+      </section>
+      <div className='flex justify-end mt-2 gap-4'>
+        <Link to={ '/project' } className='text-2xl p-2 border border-cyan-400 rounded-full'><FaArrowLeft /></Link>
+      </div>
+    </>
+  )
 }
 
 export default Contact
