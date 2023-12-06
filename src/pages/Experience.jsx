@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { skills } from '../data/skills';
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet';
 const Experience = () => {
 
     const { theme } = useTheme()
@@ -23,6 +24,10 @@ const Experience = () => {
 
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>VinhHandSome😗 | Experience</title>
+            </Helmet>
             <section className="p-3 sm:p-20 scroll-mt-28  flex flex-col items-center justify-center">
 
                 <VerticalTimeline>

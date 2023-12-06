@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from "framer-motion";
 import second from '../assets/about.png'
 import secondd from '../assets/dark2.png'
-
+import { Helmet } from "react-helmet";
 import { useTheme } from '../context/ThemeContext';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -25,6 +25,10 @@ const About = () => {
     };
     return (
         <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>VinhHandSome😗 | About</title>
+            </Helmet>
             <div className='p-2 sm:p-5 flex flex-col sm:flex-row gap-4'>
                 <div className='flex justify-center w-full'>
                     <motion.section

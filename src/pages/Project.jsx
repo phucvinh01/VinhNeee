@@ -5,9 +5,14 @@ import Card from '../components/Card'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { Helmet } from 'react-helmet'
 const Project = () => {
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>VinhHandSome😗 | Project</title>
+            </Helmet>
             <div className='flex justify-between relative'>
                 <div className='hidden sm:block sticky top-[50px] h-[200px]  w-1/2'>
                     <img src={ second } alt='heheh' />

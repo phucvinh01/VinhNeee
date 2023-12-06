@@ -28,7 +28,7 @@ const MenuMobie = () => {
                             link.map((item, index) => {
                                 return (
                                     <li className='items-center text-center py-4 border-b-2 last:border-0' key={ index }>
-                                        <Link className=' px-4  text-black font-medium hover:text-teal-500 transition dark:text-white' to={ item.hash }>{ item.name }</Link>
+                                        <Link onClick={ () => handleOk() } className=' px-4  text-black font-medium hover:text-teal-500 transition dark:text-white' to={ item.hash }>{ item.name }</Link>
                                     </li>
                                 )
                             })

@@ -1,4 +1,5 @@
-import second from '../assets/project1.png'
+import project1 from '../assets/project1.png'
+import project2 from '../assets/project2.png'
 
 
 
@@ -10,7 +11,15 @@ export const project = [
         tags: ["React", "NodeJs", "Redux/Toolkit", "MongoDB", "Bootstrap5", "AntDesign", "Email", "JWT"],
         linkWeb: "",
         linkGit: "https://github.com/phucvinh01/BeautyBox",
-        image: second
+        image: project1
     },
+    {
+        title: "VinhHandSome",
+        description:
+            "A project used to introduce myself, my skills and experience.",
+        tags: ["React", 'NodeJS', 'MongoDB', "AntDesign", "Email", "PDF", 'TailwindCSS', 'Framer Motion'],
+        linkGit: "https://vinhhandsomee.vercel.app/",
+        image: project2
+    }
 ]
 
