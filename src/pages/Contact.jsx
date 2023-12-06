@@ -40,7 +40,7 @@ const Contact = () => {
           <p className="text-sm">Front-end Developer</p>
         </div>
         <div className='flex flex-col sm:flex-row gap-1 items-center justify-between'>
-          <p className='flex gap-1 items-center justify-items-center'><CiPhone className='p-0' /> 079649405</p>
+          <p className='flex gap-1 items-center justify-items-center'><CiPhone className='p-0' /> 0792649405</p>
           <p className='flex gap-1 items-center justify-items-center'><MdOutlineEmail className='p-0' /> nguyenphucvinh1920@gmail.com</p>
           <a className='flex gap-1 items-center justify-items-center' target='_blank' href='https://vinhhandsomee.vercel.app/'><CiLink className='p-0' />https://vinhhandsomee.vercel.app/</a>
           <p className='flex gap-1 items-center justify-items-center'><CiLocationOn className='p-0' /> Tan Phu District, Ho Chi Minh City</p>
