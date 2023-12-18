@@ -14,6 +14,6 @@ export const exp = [
         "company": 'Ho Chi Minh University of Industry and Trade',
         "websiteComapy": 'https://huit.edu.vn/',
         'positon': 'Majoring in software technology',
-        'responsibility': ''
+        'responsibility': 'Learn and learn and learn :(('
     },
 ]

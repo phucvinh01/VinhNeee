@@ -14,4 +14,17 @@ function getWeather(lat, long) {
     })
 }
 
-export { getWeather }
+function joinArrayWithComma(array) {
+    let result = "";
+    for (let i = 0; i < array.length; i++) {
+        result += array[i];
+        if (i < array.length - 1) {
+            result += ", ";
+        } else {
+            result += ".";
+        }
+    }
+    return result;
+}
+
+export { getWeather, joinArrayWithComma }

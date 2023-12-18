@@ -20,6 +20,14 @@ export const project = [
         tags: ["React", 'NodeJS', 'MongoDB', "AntDesign", "Email", "PDF", 'TailwindCSS', 'Framer Motion'],
         linkGit: "https://vinhhandsomee.vercel.app/",
         image: project2
+    },
+    {
+        title: "Instagram clone",
+        description:
+            "CURD Post, Like and Save post, Expore people, Sign-up, Sign-in, IntinifyScroll",
+        tags: ["React", 'AppWrite', "React-Query", "TypeScript"],
+        linkGit: "https://vinhhandsomee.vercel.app/",
+        image: project2
     }
 ]
 

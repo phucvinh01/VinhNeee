@@ -8,8 +8,9 @@ import { FaDownload } from "react-icons/fa6";
 import second from '../assets/hehe.png'
 import darkImg from '../assets/home-dark.png'
 import { useTheme } from '../context/ThemeContext'
-import cv from '../assets/CVInternFrontEnd-NguyenPhucVinh.pdf'
 import { Helmet } from 'react-helmet'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import Resume from '../components/Resume'
 const Home = () => {
 
     const containerVariants = {
@@ -67,7 +68,11 @@ const Home = () => {
                         <div className='flex flex-row gap-3 justify-center sm:justify-start items-center'>
                             <Link className='p-2' to={ '/https://www.facebook.com/viinnh02' } target='_blank'><FaFacebook /></Link>
                             <Link className='p-2' to={ 'https://github.com/phucvinh01' }><FaGithub /></Link>
-                            <a className='flex items-center gap-1 border p-2 rounded' download href={ cv }><FaDownload /> Download my CV</a>
+                            <PDFDownloadLink className='flex items-center gap-1 border p-2 rounded' document={ <Resume /> } fileName="CV Intern React - NguyenPhucVinh.pdf">
+                                { ({ blob, url, loading, error }) =>
+                                    loading ? 'Loading document...' : (<><FaDownload /> Download my CV</>)
+                                }
+                            </PDFDownloadLink>
                         </div>
                     </motion.div>
                     <div className='hidden sm:block'>
