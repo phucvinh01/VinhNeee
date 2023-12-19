@@ -1,6 +1,6 @@
 import project1 from '../assets/project1.png'
 import project2 from '../assets/project2.png'
-
+import project3 from '../assets/project3.png'
 
 
 export const project = [
@@ -24,10 +24,10 @@ export const project = [
     {
         title: "Instagram clone",
         description:
-            "CURD Post, Like and Save post, Expore people, Sign-up, Sign-in, IntinifyScroll",
+            "Still in the development stage. Existing functions such as CURD post, sign-in, sign-out, like post, save post,...",
         tags: ["React", 'AppWrite', "React-Query", "TypeScript"],
-        linkGit: "https://vinhhandsomee.vercel.app/",
-        image: project2
+        linkGit: "https://instagram-by-vinhhandsome.vercel.app/",
+        image: project3
     }
 ]
 
