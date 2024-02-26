@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+/* eslint-disable react/no-unescaped-entities */
+import { useRef } from 'react'
 import Weather from '../components/Weather'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import icon from '../assets/hi.png'
@@ -11,7 +12,10 @@ import { useTheme } from '../context/ThemeContext'
 import { Helmet } from 'react-helmet'
 import { PDFDownloadLink } from '@react-pdf/renderer'
 import Resume from '../components/Resume'
+import calculateYOE from '../lib/calculateYOE'
 const Home = () => {
+
+    const yoe = calculateYOE("8/2023")
 
     const containerVariants = {
         swinging: {
@@ -60,16 +64,16 @@ const Home = () => {
                             transition={ { delay: 0.5 } }
                         >
                             <span className="font-bold">Hello, </span> I'm a{ " " }
-                            <span className="font-bold">front-end developer</span> with{ " 0.5 " }
+                            <span className="font-bold">front-end developer</span> with { yoe } { " " }
                             YOE. I enjoy
                             building <span className="italic">sites & apps</span>. My focus is{ " " }
-                            <a target='_blank' className="underline" href='https://en.wikipedia.org/wiki/React_(software)'>React</a>.
+                            <a target='_blank' className="underline" href='https://en.wikipedia.org/wiki/React_(software)' rel="noreferrer">React</a>.
                         </motion.p>
                         <div className='flex flex-row gap-3 justify-center sm:justify-start items-center'>
                             <Link className='p-2' to={ '/https://www.facebook.com/viinnh02' } target='_blank'><FaFacebook /></Link>
                             <Link className='p-2' to={ 'https://github.com/phucvinh01' }><FaGithub /></Link>
                             <PDFDownloadLink className='flex items-center gap-1 border p-2 rounded' document={ <Resume /> } fileName="CV Intern React - NguyenPhucVinh.pdf">
-                                { ({ blob, url, loading, error }) =>
+                                { ({ loading, }) =>
                                     loading ? 'Loading document...' : (<><FaDownload /> Download my CV</>)
                                 }
                             </PDFDownloadLink>

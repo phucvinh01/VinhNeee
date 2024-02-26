@@ -1,5 +1,5 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer';
 import { joinArrayWithComma } from '../lib/api';
 import { info } from '../data/info';
 import { exp } from '../data/experience';
@@ -49,7 +49,6 @@ const PDFGenerator = () => {
       <Page  size='A4' style={{
             display: 'flex',
             flexDirection: 'column',
-            maxWidth: 900,
             padding: 40,
             marginTop: 50,
             backgroundColor: '#fff',
@@ -100,7 +99,7 @@ const PDFGenerator = () => {
             </View>
           </View>
           <View
-            style={{ display: 'flex', flexDirection: 'column', marginTop: 30 }}>
+            style={{ display: 'flex', flexDirection: 'column', marginTop: 30, }}>
             <View
               style={{
                 marginBottom: 40,
@@ -108,19 +107,24 @@ const PDFGenerator = () => {
                 flexDirection: 'column',
               }}>
               <Text style={styles.sectionTitle}>Experience</Text>
-              <View>
+              <View style={{
+                display:"flex", flexDirection:"column", gap:15, padding:"10px"
+              }}>
                 {exp.map((item, index) => {
                   if (item.tag === 'work') {
                     return (
                       <View
                         key={index}
-                        style={{ display: 'flex' , justifyContent:'space-between'}}>
-                        <View style={styles.left}>
+                        style={{ display: 'flex' , flexDirection:"column", gap:5}}>
+                        <View style={{
+                          display:"flex",
+                          gap:5
+                        }}>
                           <Text style={styles.name}>{item.company}</Text>
-                          <Text>{item.websiteComapy}</Text>
-                          <Text>{item.date}</Text>
+                          <Text> - </Text>
+                          <Text>({item.date})</Text>
                         </View>
-                        <View style={styles.right}>
+                        <View style={{display:"flex", gap:2,flexDirection:"column"}} >
                           <Text style={styles.name}>{item.positon}</Text>
                           <Text>{item.responsibility}</Text>
                         </View>
@@ -136,19 +140,22 @@ const PDFGenerator = () => {
                 flexDirection: 'column',
               }}>
               <Text style={styles.sectionTitle}>Education</Text>
-              <View>
+              <View style={{padding:"10px"}}>
                 {exp.map((item, index) => {
                   if (item.tag === 'learn') {
                     return (
                       <View
                         key={index}
-                        style={{ display: 'flex', justifyContent:'space-between' }}>
-                        <View style={styles.left}>
+                        style={{ display: 'flex' , flexDirection:"column", gap:5}}>
+                        <View style={{
+                          display:"flex",
+                          gap:5
+                        }}>
                           <Text style={styles.name}>{item.company}</Text>
-                          <Text>{item.websiteComapy}</Text>
-                          <Text>{item.date}</Text>
+                          <Text> - </Text>
+                          <Text>({item.date})</Text>
                         </View>
-                        <View style={styles.right}>
+                        <View style={{display:"flex", gap:2,flexDirection:"column"}} >
                           <Text style={styles.name}>{item.positon}</Text>
                           <Text>{item.responsibility}</Text>
                         </View>
