@@ -86,7 +86,8 @@ const About = () => {
 
                 </div>
 
-                <img src={ theme !== 'dark' ? second : secondd } alt='img' className='w-full sm:w-1/4' />
+                {/* <img src={ theme !== 'dark' ? second : secondd } alt='img' className='w-full sm:w-1/4' /> */ }
+                <a href="https://app.daily.dev/vinh198"><img src="https://api.daily.dev/devcards/v2/0fbMcC9Rr1JygQbxChX3b.png?type=default&r=td2" width="356" alt="Phúc Vinh's Dev Card" /></a>
 
 
 
