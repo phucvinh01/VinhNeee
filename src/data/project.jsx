@@ -1,6 +1,7 @@
 import project1 from '../assets/project1.png'
 import project2 from '../assets/project2.png'
 import project3 from '../assets/project3.png'
+import project4 from '../assets/project4.png'
 
 
 export const project = [
@@ -28,6 +29,14 @@ export const project = [
         tags: ["React", 'AppWrite', "React-Query", "TypeScript"],
         linkGit: "https://instagram-by-vinhhandsome.vercel.app/",
         image: project3
+    },
+    {
+        title: "Saas Image processing",
+        description:
+            "The website provides utilities such as image restore, generative fill, object remove, object recolor and background remove",
+        tags: ["NextJS", 'MongoDB', "Cloudinary", "TypeScript"],
+        linkGit: "https://ai-saas-image.vercel.app/",
+        image: project4
     }
 ]
 
